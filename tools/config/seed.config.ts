@@ -48,7 +48,7 @@ export class SeedConfig {
    * The default port is `5555`, which can be overriden by the  `--port` flag when running `npm start`.
    * @type {number}
    */
-  PORT = argv['port'] || 5555;
+  PORT = argv['port'] || 3000;
 
   /**
    * The root folder of the project (up two levels from the current directory).
@@ -220,7 +220,7 @@ export class SeedConfig {
    * The folder for the built files in the `prod` environment.
    * @type {string}
    */
-  PROD_DEST = `${this.DIST_DIR}/prod`;
+  PROD_DEST = `${this.DIST_DIR}/heartbeat-ui`;
 
   /**
    * The folder for temporary files.
@@ -475,7 +475,7 @@ export class SeedConfig {
       })],
       port: this.PORT,
       startPath: this.APP_BASE,
-      open: argv['b'] ? false : true,
+      open: false,
       injectChanges: false,
       server: {
         baseDir: `${this.DIST_DIR}/empty/`,

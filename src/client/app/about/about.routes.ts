@@ -4,6 +4,6 @@ import { AboutComponent } from './index';
 export const AboutRoutes: Route[] = [
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
   }
 ];

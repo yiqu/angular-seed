@@ -9,8 +9,8 @@
 
 nav a {
   color: #8f8f8f;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: bold;
   line-height: 48px;
   margin-right: 20px;
   text-decoration: none;
@@ -19,5 +19,6 @@ nav a {
 }
 
 nav a.router-link-active {
-  color: #106cc8;
+  color: black;
+  text-decoration: underline;
 }

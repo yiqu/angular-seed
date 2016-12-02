@@ -37,7 +37,10 @@ export class HomeComponent implements OnInit {
   getNames() {
     this.nameListService.get()
       .subscribe(
-        names => this.names = names,
+        names => {
+          console.log(names);
+          return this.names = names
+        },
         error => this.errorMessage = <any>error
       );
   }
