@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  padding: 0 8px;
+  font-family: "Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+}
+
+.server-report {
+  padding: 10px 0px 10px 0px;
+}
+
+.status-enabled {
+  text-transform: uppercase;
+  color: black;
+}
+
+.status-disabled {
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.status-green {
+  color: white;
+  background-color: #00cc00
+}
+
+.status-yellow {
+  color: black;
+  background-color: #ffff00
+}
+
+.status-red {
+  color: white;
+  background-color: #ff0000
+}
+
+.status-none {
+  color: white;
+  background-color: #bfbfbf
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.tr-headers {
+  color: #3366ff;
+}

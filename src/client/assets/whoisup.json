@@ -1,0 +1,6 @@
+[
+    {"name":"integration","status":"green","enabled":true},
+    {"name":"caz","status":"green","enabled":true},
+    {"name":"service","status":"yellow","enabled":true},
+    {"name":"alf","status":null,"enabled":false}
+]

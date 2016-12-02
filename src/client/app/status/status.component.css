@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding: 0 8px;
+  font-family: "Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+}
+
+.status-date, .last-fetch{
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 0px 0px 10px;
+  color: #727272;
+  display: inline-block;
+}
+
+.status-heading {
+  padding: 5px 0px 0px 10px;
+  color: #595959;
+  font-size: 18px;
+}
