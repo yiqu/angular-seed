@@ -15,7 +15,7 @@ export class StatusComponent implements OnInit {
 
   errorMessage: string;
   status: any[] = [];
-  lastPinged: number = 0;
+  lastPingeded: number = 0;
   clock: any;
 
   /**
@@ -42,16 +42,20 @@ export class StatusComponent implements OnInit {
    * Handle the serverStatusService observable
    */
   getAllStatus() {
-    this.lastPinged = Date.now();
     this.serverStatusService.get()
       .subscribe(
         data => {
-          return this.status = data
+          this.status = data
         },
-        error => this.errorMessage = <any>error,
+        error => {
+          // TODO: send a failure message to display.
+          console.log('failure!');
+          this.errorMessage = <any>error;
+        },
         () => {
           // completed the call
-          console.log('From inits getAllStatus ' + this.status)
+          console.log('success!');
+          this.lastPingeded = Date.now();
         }
       );
   }
@@ -63,7 +67,6 @@ export class StatusComponent implements OnInit {
     Observable.interval(60000)
       .subscribe(() => {
         this.getAllStatus();
-        this.lastPinged = Date.now();
       })
   }
 
