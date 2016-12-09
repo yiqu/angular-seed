@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerStatusService } from '../shared/index';
-import { Observable } from 'rxjs/Rx';;
+import { ServerStatusService, LoadingIndicatorComponent, LoadingPage } from '../shared/index';
+import { Observable } from 'rxjs/Rx';
+
 
 /**
  * This class represents the lazy loaded statusComponent.
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs/Rx';;
   moduleId: module.id,
   selector: 'sd-status',
   templateUrl: 'status.component.html',
-  styleUrls: ['status.component.css']
+  styleUrls: ['status.component.css'],
 })
 export class StatusComponent implements OnInit {
 
@@ -17,6 +18,7 @@ export class StatusComponent implements OnInit {
   status: any[] = [];
   lastPingeded: number = 0;
   clock: any;
+  loaded: boolean;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -24,11 +26,15 @@ export class StatusComponent implements OnInit {
    *
    * @param {ServerStatusService} serverStatusService - The injected ServerStatusService.
    */
-  constructor(public serverStatusService: ServerStatusService) {}
+  constructor(public serverStatusService: ServerStatusService) {
+
+  }
   /**
    * Get the names OnInit
    */
   ngOnInit() {
+    // Start spinner on init
+    this.loaded = false;
     this.getAllStatus();
     this.initializePolling();
     this.clock = Observable
@@ -42,6 +48,7 @@ export class StatusComponent implements OnInit {
    * Handle the serverStatusService observable
    */
   getAllStatus() {
+    this.loaded = false;
     this.serverStatusService.get()
       .subscribe(
         data => {
@@ -55,6 +62,7 @@ export class StatusComponent implements OnInit {
         () => {
           // completed the call
           console.log('success!');
+          this.loaded = true;
           this.lastPingeded = Date.now();
         }
       );
@@ -64,10 +72,9 @@ export class StatusComponent implements OnInit {
    * Called on init to refresh the status every 5 mins.
    */
   initializePolling() {
-    Observable.interval(60000)
+    Observable.interval(120000)
       .subscribe(() => {
         this.getAllStatus();
       })
   }
-
 }

@@ -25,6 +25,7 @@ export class ServerStatusService {
       .map((res: Response) => {
         return res.json();
       })
+      .delay(5000) // Added delay to test load mask
       .catch(this.handleError);
   }
 
@@ -37,6 +38,7 @@ export class ServerStatusService {
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
+    console.log('Errrror!');
     return Observable.throw(errMsg);
   }
 }

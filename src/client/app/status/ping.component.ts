@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
-import { ServerStatusService } from '../shared/index';
-
+import { ServerStatusService, LoadingPage } from '../shared/index';
 
 /**
  * This class represents the ping button component
@@ -11,22 +10,30 @@ import { ServerStatusService } from '../shared/index';
     styleUrls: ['ping.component.css'],
     template: `
     <div [ngClass]="'server-report'">
-    <table>
-        <tr class='tr-headers'>
-            <th>Service Name</th>
-            <th>Status</th>
-        </tr>
-        <tr *ngFor="let stat of status">
-            <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.name | uppercase}} ({{stat?.enabled | enabled}})</th>
-            <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.status | status}}</th>
-        </tr>
-    </table>
+        <div [ngSwitch]="loading">
+            <div *ngSwitchCase="false">
+                <table>
+                    <tr class='tr-headers'>
+                        <th>Service Name</th>
+                        <th>Status</th>
+                    </tr>
+                        <tr *ngFor="let stat of status">
+                        <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.name | uppercase}} ({{stat?.enabled | enabled}})</th>
+                        <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.status | status}}</th>
+                    </tr>
+                </table>
+            </div>
+            <div *ngSwitchCase="true">
+                <loading-indicator></loading-indicator>
+            </div>
+        </div>
     </div>
     `
 })
-export class PingComponent implements OnChanges {
+export class PingComponent extends LoadingPage implements OnChanges {
     @Input() status: any[];
     @Input() lastPinged: number;
+    @Input() loaded: boolean;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -34,11 +41,19 @@ export class PingComponent implements OnChanges {
    *
    * @param {ServerStatusService} serverStatusService - The injected ServerStatusService.
    */
-    constructor(public serverStatusService: ServerStatusService) {}
+    constructor(public serverStatusService: ServerStatusService) {
+        super(true);
+    }
 
     ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-        //console.log('changes!!' + JSON.stringify(changes)); 
-    }   
+        // Load mask depending on loaded
+        if(this.loaded) {
+            this.ready();
+        } else {
+            this.standby();
+        }   
+    } 
+
 }
 
 @Component({
@@ -53,8 +68,4 @@ export class lastPingComponent implements OnChanges {
     ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
         //console.log('changes!!' + JSON.stringify(changes));    
     } 
-
-    ngDoCheck() {
-        //console.log("in do check: " + this.lastPinged);
-    }
 }
