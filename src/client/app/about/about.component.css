@@ -1,6 +1,8 @@
 :host {
   display: block;
   padding: 0 16px;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 h2 {

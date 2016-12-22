@@ -89,3 +89,8 @@ button:hover {
   text-align: center;
   font-size: 10px;
 }
+
+.wrap {
+    margin: 0 auto;
+    max-width: 800px;
+}

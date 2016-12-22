@@ -1,7 +1,14 @@
+/*This is the only way we can target the host element. We cannot reach it from inside the component with other selectors, 
+because it is not part of the component's own template. It is in a parent component's template. 
+:host selector will target styles in the element that hosts the component. This applys to status-details because
+it is part of the status.component.ts
+*/
 :host {
   display: block;
   padding: 0 8px;
   font-family: "Helvetica Neue",​Helvetica,​Arial,​sans-serif;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .status-date, .last-fetch{

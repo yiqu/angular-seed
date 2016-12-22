@@ -220,7 +220,7 @@ export class SeedConfig {
    * The folder for the built files in the `prod` environment.
    * @type {string}
    */
-  PROD_DEST = `${this.DIST_DIR}/heartbeat-ui`;
+  PROD_DEST = `${this.DIST_DIR}/prod`;
 
   /**
    * The folder for temporary files.
