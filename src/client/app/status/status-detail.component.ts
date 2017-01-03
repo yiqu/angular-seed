@@ -7,7 +7,7 @@ import { ServerStatusService, LoadingPage } from '../shared/index';
 @Component({
     moduleId: module.id,
     selector: 'status-detail',
-    styleUrls: ['ping.component.css'],
+    styleUrls: ['status-detail.component.css'],
     template: `
     <div [ngClass]="'server-report'">
         <div [ngSwitch]="loading">
@@ -30,10 +30,9 @@ import { ServerStatusService, LoadingPage } from '../shared/index';
     </div>
     `
 })
-export class PingComponent extends LoadingPage implements OnChanges {
+export class StatusDetailComponent extends LoadingPage implements OnChanges {
     @Input() status: any[];
-    @Input() lastPinged: number;
-    @Input() loaded: boolean;
+    @Input() loadedInput: boolean;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -41,31 +40,17 @@ export class PingComponent extends LoadingPage implements OnChanges {
    *
    * @param {ServerStatusService} serverStatusService - The injected ServerStatusService.
    */
-    constructor(public serverStatusService: ServerStatusService) {
+    constructor() {
         super(true);
     }
 
-    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    ngOnChanges() {
         // Load mask depending on loaded
-        if(this.loaded) {
+        if(this.loadedInput) {
             this.ready();
         } else {
             this.standby();
         }   
     } 
 
-}
-
-@Component({
-    moduleId: module.id,
-    selector: 'last-ping',
-    styleUrls: ['ping.component.css'],
-    template: `Last successful ping: {{lastPinged | date:'jms'}} on {{lastPinged | date:'yMd'}}`
-})
-export class lastPingComponent implements OnChanges {
-    @Input() lastPinged: number;
-
-    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-        //console.log('changes!!' + JSON.stringify(changes));    
-    } 
 }

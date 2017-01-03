@@ -7,3 +7,4 @@ export * from './toolbar/index';
 export * from './config/env.config';
 export * from './server-status/index';
 export * from './load-mask/index';
+export * from './fetch-button/index';

@@ -3,6 +3,6 @@
 </div>
 <div class='status-date'>It is currently {{clock | async | date:'jms'}}, {{clock | async | date:'yMd'}}</div>
 
-<status-detail [status]="status" [lastPinged]="lastPinged" [loaded]="loaded"></status-detail>
-<button (click)="getAllStatus()">Ping All Servers</button>
-<last-ping [ngClass]="'last-fetch'" [lastPinged]="lastPingeded"></last-ping>
+<status-detail [status]="status" [loadedInput]="loadedValue"></status-detail>
+<!-- <button (click)="getAllStatus()">Fetch</button> -->
+<fetch-button (click)="getAllStatus()" [loadingMsgInput]="loadingMsgValue"></fetch-button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerStatusService, LoadingIndicatorComponent, LoadingPage } from '../shared/index';
+import { ServerStatusService, LoadingPage } from '../shared/index';
 import { Observable } from 'rxjs/Rx';
 
 
@@ -12,13 +12,17 @@ import { Observable } from 'rxjs/Rx';
   templateUrl: 'status.component.html',
   styleUrls: ['status.component.css'],
 })
-export class StatusComponent implements OnInit {
+export class StatusComponent extends LoadingPage implements OnInit {
 
   errorMessage: string;
-  status: any[] = [];
-  lastPingeded: number = 0;
   clock: any;
-  loaded: boolean;
+
+  // array string to send to status-detail @input status 
+  status: any[] = [];
+  // boolean to send over to status-detail @input loadedInput
+  loadedValue: boolean;
+  // value to send over to fetch-button @input loadingMsg
+  loadingMsgValue: string;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -27,20 +31,20 @@ export class StatusComponent implements OnInit {
    * @param {ServerStatusService} serverStatusService - The injected ServerStatusService.
    */
   constructor(public serverStatusService: ServerStatusService) {
-
+    super(true);
   }
   /**
    * Get the names OnInit
    */
   ngOnInit() {
     // Start spinner on init
-    this.loaded = false;
+    this.loadedValue = false;
     this.getAllStatus();
     this.initializePolling();
     this.clock = Observable
         .interval(1000)
         .map(()=> {
-          return new Date()
+          return new Date();
         });
   }
 
@@ -48,7 +52,8 @@ export class StatusComponent implements OnInit {
    * Handle the serverStatusService observable
    */
   getAllStatus() {
-    this.loaded = false;
+    this.loadedValue = false;
+    this.loadingMsgValue = "Loading ...";
     this.serverStatusService.get()
       .subscribe(
         data => {
@@ -57,13 +62,16 @@ export class StatusComponent implements OnInit {
         error => {
           // TODO: send a failure message to display.
           console.log('failure!');
+          this.loadingMsgValue = "Error occured: " + this.errorMessage;
           this.errorMessage = <any>error;
         },
         () => {
-          // completed the call
+          // Completed the call
           console.log('success!');
-          this.loaded = true;
-          this.lastPingeded = Date.now();
+          this.loadedValue = true;
+          this.loadingMsgValue = "";
+          // Update the time on top left (toolbar component)
+          this.serverStatusService.updateFetchTime.next(true);
         }
       );
   }
@@ -72,7 +80,7 @@ export class StatusComponent implements OnInit {
    * Called on init to refresh the status every 5 mins.
    */
   initializePolling() {
-    Observable.interval(120000)
+    Observable.interval(60000)
       .subscribe(() => {
         this.getAllStatus();
       })

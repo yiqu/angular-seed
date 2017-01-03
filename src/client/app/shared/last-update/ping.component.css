@@ -1,0 +1,13 @@
+:host {
+    float: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin: 15px 0px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    font-stretch: condensed;
+    color: #727272;
+}

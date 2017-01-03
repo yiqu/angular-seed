@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { StatusComponent } from './status.component';
-import { PingComponent, lastPingComponent } from './ping.component';
-import { ServerStatusService } from '../shared/index';
+import { StatusDetailComponent } from './status-detail.component';
+
 import { EnabledPipe } from '../shared/pipes/server-enabled.pipe';
 import { StatusPipe } from '../shared/pipes/server-status.pipe';
 import { LoadingIndicatorComponent } from '../shared/index';
 
 @NgModule({
-    imports: [CommonModule],
-    declarations: [StatusComponent, PingComponent, lastPingComponent, EnabledPipe, StatusPipe, LoadingIndicatorComponent],
-    exports: [StatusComponent, PingComponent] 
+    imports: [CommonModule, SharedModule],
+    declarations: [StatusComponent, StatusDetailComponent, 
+    EnabledPipe, StatusPipe, LoadingIndicatorComponent],
+    exports: [StatusComponent] 
 })
 
 export class StatusModule { }

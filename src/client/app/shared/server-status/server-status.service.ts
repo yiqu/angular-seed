@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject} from 'rxjs/Rx';
 // import 'rxjs/add/operator/do';  // for debugging
 
 /**
@@ -25,9 +26,14 @@ export class ServerStatusService {
       .map((res: Response) => {
         return res.json();
       })
-      .delay(5000) // Added delay to test load mask
+      .delay(1000) // Added delay to test load mask
       .catch(this.handleError);
   }
+
+ /**
+   * Create a Subject to be subscribed
+   */
+  updateFetchTime: Subject<boolean> = new Subject<boolean>();
 
   /**
     * Handle HTTP error
