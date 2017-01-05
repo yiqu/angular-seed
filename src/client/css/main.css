@@ -65,32 +65,34 @@ button:hover {
 }
 
 .sd-header {
-  background-color: rgb(216, 111, 63);
+  background-color: #00b33c;
   height: 15px;
   position: fixed;
   top: 0;
   display: block;
   width: 100%;
-  color: #FFFF00;
+  color: white;
   font-weight: bold;
   text-align: center;
   font-size: 10px;
+  z-index: 1;
 }
 
 .sd-footer {
-  background-color: rgb(216, 111, 63);
+  background-color: #00b33c;
   height: 15px;
   position: fixed;
   bottom: 0;
   display: block;
   width: 100%;
-  color: #FFFF00;
+  color: white;
   font-weight: bold;
   text-align: center;
   font-size: 10px;
+  z-index: 1;
 }
 
 .wrap {
-    margin: 0 auto;
-    max-width: 800px;
+  margin: 0 auto;
+  max-width: 800px;
 }

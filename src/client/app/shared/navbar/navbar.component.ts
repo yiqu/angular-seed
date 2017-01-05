@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { ServerStatusService } from '../server-status/index';
 
 /**
  * This class represents the navigation bar component.
@@ -9,4 +10,33 @@ import { Component } from '@angular/core';
   templateUrl: 'navbar.component.html',
   styleUrls: ['navbar.component.css'],
 })
-export class NavbarComponent { }
+export class NavbarComponent { 
+  notOperational: boolean;
+  operationalMsg: string;
+  serverError: boolean;
+
+  /**
+   * Creates an instance of the toolbar comp with the injected
+   * ServerStatusService.
+   */
+  constructor(public serverStatusService: ServerStatusService) {
+    this.serverStatusService.updateOperationalStatus.subscribe((inputValue:string) => {
+      switch (inputValue) {
+        case 'bad':
+          this.notOperational = true;
+          this.operationalMsg = 'One or more systems halted';
+          break;
+        case 'good':
+          this.operationalMsg = 'All enabled systems operational';
+          this.notOperational = false;  
+          break;
+        case 'error':
+          this.operationalMsg = 'Server error occured';  
+          this.notOperational = true; 
+          break;
+        default:
+          this.operationalMsg = 'Loading...';
+      }
+    });
+  }
+}

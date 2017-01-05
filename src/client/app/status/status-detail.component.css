@@ -9,6 +9,11 @@
   /* opacity: 0.6; */
 }
 
+.server-report-loading {
+  padding: 10px 0px 10px 0px;
+  opacity: 0.5;
+}
+
 .status-enabled {
   text-transform: uppercase;
   color: black;
@@ -42,7 +47,7 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 30%;
+    width: 100%;
 }
 
 td, th {

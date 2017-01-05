@@ -42,10 +42,10 @@ export class StatusComponent extends LoadingPage implements OnInit {
     this.getAllStatus();
     this.initializePolling();
     this.clock = Observable
-        .interval(1000)
-        .map(()=> {
-          return new Date();
-        });
+      .interval(1000)
+      .map(()=> {
+        return new Date();
+      });
   }
 
   /**
@@ -61,28 +61,45 @@ export class StatusComponent extends LoadingPage implements OnInit {
         },
         error => {
           // TODO: send a failure message to display.
-          console.log('failure!');
-          this.loadingMsgValue = "Error occured: " + this.errorMessage;
-          this.errorMessage = <any>error;
+          console.log('failure with last fetch.');
+          this.serverStatusService.updateOperationalStatus.next('error');
+          this.loadingMsgValue = "Fetch";
+          this.errorMessage = "Error occured with last fetch: " + <any>error;
         },
         () => {
           // Completed the call
           console.log('success!');
           this.loadedValue = true;
-          this.loadingMsgValue = "";
+          this.loadingMsgValue = "Fetch";
           // Update the time on top left (toolbar component)
           this.serverStatusService.updateFetchTime.next(true);
+          // Update the operational message in navbar comp.
+          let result = JSON.stringify(this.status);
+          this.calculateOperationalStatus(result);
         }
       );
   }
 
   /**
-   * Called on init to refresh the status every 5 mins.
+   * Called on init to refresh the status every 1 mins.
    */
   initializePolling() {
     Observable.interval(60000)
       .subscribe(() => {
         this.getAllStatus();
       })
+  }
+
+  /**
+   * Calculate if there are services halted, and update the Observable
+   */
+  calculateOperationalStatus(statusResult:string) {
+    let pattern = /red/;
+    let bad = pattern.test(statusResult);
+    if (bad) {
+      this.serverStatusService.updateOperationalStatus.next('bad');
+    } else {
+      this.serverStatusService.updateOperationalStatus.next('good');   
+    }
   }
 }

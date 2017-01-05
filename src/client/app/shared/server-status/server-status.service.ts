@@ -22,7 +22,20 @@ export class ServerStatusService {
    * @return {string[]} The Observable for the HTTP request.
    */
   get(): Observable<string[]> {
-    return this.http.get('/assets/whoisup.json')
+    /*
+    return this.http.get('/heartbeat/whoisup.json')
+      .map((res: Response) => {
+        return res.json();
+      })
+      .catch(this.handleError);
+      */
+      
+      return Math.floor(Math.random() * 2) + 1 === 1 ? this.http.get('/assets/whoisup.json')
+      .map((res: Response) => {
+        return res.json();
+      })
+      .delay(1000) // Added delay to test load mask
+      .catch(this.handleError) : this.http.get('/assets/whoisup2.json')
       .map((res: Response) => {
         return res.json();
       })
@@ -31,9 +44,14 @@ export class ServerStatusService {
   }
 
  /**
-   * Create a Subject to be subscribed
+   * Create a Subject to be subscribed for updating LAST UPDATED comp.
    */
   updateFetchTime: Subject<boolean> = new Subject<boolean>();
+
+ /**
+   * Create a Subject to be subscribed for updating operational message in navbar comp.
+   */
+  updateOperationalStatus: Subject<string> = new Subject<string>();
 
   /**
     * Handle HTTP error

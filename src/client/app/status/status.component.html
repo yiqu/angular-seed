@@ -1,8 +1,21 @@
-<div class='status-heading'>We continuously monitor the status of AppName and all its related services. 
-    If there are any interruptions in service, a note will be posted here.
+<div class='status-heading'>
+    <div class = 'about'>
+    <h4><b>What is this site?</b></h4>
+    </div>
+    <p>We continuously monitor the status of appName and all its related services. 
+
+    <div class = 'about'>
+    <h4><b>What do we monitor?</b></h4>
+    </div>
+    <p><b>SERVICE</b> - Core appName functionality service.
+    <p><b>caz</b> - User authentication service.
+    <p><b>INTEGRATION</b> - Intermediary services to facilitate with other external systems to provide appName with integration points to other apps.
+    <p><b>ALFRESCO</b> - appName attachment management.
 </div>
-<div class='status-date'>It is currently {{clock | async | date:'jms'}}, {{clock | async | date:'yMd'}}</div>
+
+<div class='status-date'>It is currently {{clock | async | date:'yMd'}}, {{clock | async | date:'jms'}}</div>
 
 <status-detail [status]="status" [loadedInput]="loadedValue"></status-detail>
-<!-- <button (click)="getAllStatus()">Fetch</button> -->
-<fetch-button (click)="getAllStatus()" [loadingMsgInput]="loadingMsgValue"></fetch-button>
+
+<fetch-button (click)="loadingMsgValue == 'Fetch' ? getAllStatus() : none" 
+    [loadingMsgInput]="loadingMsgValue" [errorLoadMsgInput]="errorMessage"></fetch-button>

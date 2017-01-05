@@ -1,1 +1,2 @@
-<div><button class="fetch-button">Fetch</button> {{loadingMsgInput}} </div>
+<div><button [ngClass]="loadingMsgInput === 'Fetch' ? 'fetch-button' : 'disabled-fetch-button'">
+    {{loadingMsgInput}}</button> {{errorLoadMsgInput}} </div>

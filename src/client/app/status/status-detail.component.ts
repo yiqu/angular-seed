@@ -10,22 +10,17 @@ import { ServerStatusService, LoadingPage } from '../shared/index';
     styleUrls: ['status-detail.component.css'],
     template: `
     <div [ngClass]="'server-report'">
-        <div [ngSwitch]="loading">
-            <div *ngSwitchCase="false">
-                <table>
-                    <tr class='tr-headers'>
-                        <th>Service Name</th>
-                        <th>Status</th>
-                    </tr>
-                        <tr *ngFor="let stat of status">
-                        <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.name | uppercase}} ({{stat?.enabled | enabled}})</th>
-                        <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.status | status}}</th>
-                    </tr>
-                </table>
-            </div>
-            <div *ngSwitchCase="true">
-                <loading-indicator></loading-indicator>
-            </div>
+        <div [ngClass]="loading == true ? 'server-report-loading': 'server-report'">
+            <table>
+                <tr class='tr-headers'>
+                    <th>Service Name</th>
+                    <th>Status</th>
+                </tr>
+                    <tr *ngFor="let stat of status">
+                    <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.name | uppercase}} ({{stat?.enabled | enabled}})</th>
+                    <th [ngClass]="stat?.status === null ? 'status-none': 'status-'+stat?.status">{{stat?.status | status}}</th>
+                </tr>
+            </table>
         </div>
     </div>
     `
@@ -35,6 +30,7 @@ export class StatusDetailComponent extends LoadingPage implements OnChanges {
     @Input() loadedInput: boolean;
 
   /**
+   * <loading-indicator></loading-indicator>
    * Creates an instance of the HomeComponent with the injected
    * ServerStatusService.
    *

@@ -1,9 +1,9 @@
 :host {
   border-color: #e1e1e1;
   border-style: solid;
-  border-width: 0 0 1px;
+  border-width: 0 0 2px;
   display: block;
-  padding: 20px 16px 1px;
+  padding: 20px 0px 1px;
 }
 
 nav a {
@@ -37,4 +37,13 @@ nav a.router-link-active {
 
 .good {
   color: #396;
+}
+
+#message.bad {
+  background: #ffad99;
+  border-color: #cc2900;
+}
+
+.bad {
+  color: #b30000;
 }

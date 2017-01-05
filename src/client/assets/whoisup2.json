@@ -1,6 +1,6 @@
 [
     {"name":"int","status":"green","enabled":true},
-    {"name":"caz","status":"yellow","enabled":true},
+    {"name":"caz","status":"red","enabled":true},
     {"name":"service","status":"green","enabled":true},
     {"name":"alf","status":null,"enabled":false}
 ]
