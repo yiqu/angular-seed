@@ -41,6 +41,7 @@ export class ServerStatusService {
       })
       .delay(1000) // Added delay to test load mask
       .catch(this.handleError);
+      
   }
 
  /**

@@ -31,7 +31,7 @@ export class NavbarComponent {
           this.notOperational = false;  
           break;
         case 'error':
-          this.operationalMsg = 'Server error occured';  
+          this.operationalMsg = 'There is a problem with Heartbeat server';  
           this.notOperational = true; 
           break;
         default:
