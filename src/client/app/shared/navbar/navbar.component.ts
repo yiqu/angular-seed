@@ -12,7 +12,7 @@ import { ServerStatusService } from '../server-status/index';
 })
 export class NavbarComponent { 
   notOperational: boolean;
-  operationalMsg: string;
+  operationalMsg: string =  "Loading... Please wait.";
   serverError: boolean;
 
   /**

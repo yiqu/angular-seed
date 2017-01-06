@@ -45,9 +45,8 @@
 }
 
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 101%;
 }
 
 td, th {
@@ -57,5 +56,5 @@ td, th {
 }
 
 .tr-headers {
-  color: #3366ff;
+  color: #727272;
 }

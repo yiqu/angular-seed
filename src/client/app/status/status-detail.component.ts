@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
 import { ServerStatusService, LoadingPage } from '../shared/index';
 
 /**
- * This class represents the ping button component
+ * This class represents the status detail comp. that display the status table
  */
 @Component({
     moduleId: module.id,
@@ -30,7 +30,6 @@ export class StatusDetailComponent extends LoadingPage implements OnChanges {
     @Input() loadedInput: boolean;
 
   /**
-   * <loading-indicator></loading-indicator>
    * Creates an instance of the HomeComponent with the injected
    * ServerStatusService.
    *
@@ -48,5 +47,4 @@ export class StatusDetailComponent extends LoadingPage implements OnChanges {
             this.standby();
         }   
     } 
-
 }

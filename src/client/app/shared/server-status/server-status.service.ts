@@ -52,6 +52,11 @@ export class ServerStatusService {
    * Create a Subject to be subscribed for updating operational message in navbar comp.
    */
   updateOperationalStatus: Subject<string> = new Subject<string>();
+ 
+ /**
+   * Create a singleton variable to prevent multiple pollings
+   */
+  startedPolling = false;
 
   /**
     * Handle HTTP error

@@ -5,5 +5,10 @@ export const StatusRoutes: Route[] = [
   {
     path: 'status',
     component: StatusComponent,
+  },
+  // Redirect a unknown path to Status page
+  {
+    path: '**',
+    component: StatusComponent
   }
 ];

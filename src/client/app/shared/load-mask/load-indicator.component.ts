@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 
+/*
+ * Class used to indicate if a page is in loading state
+ */
 export class LoadingPage {
 
     public loading: boolean;
@@ -14,11 +17,3 @@ export class LoadingPage {
         this.loading = false;
     }
 }
-
-@Component({
-    moduleId: module.id,
-    selector: 'loading-indicator',
-    template: '<div class="loader"></div>',
-    styleUrls: ['load-indicator.component.css'],
-})
-export class LoadingIndicatorComponent {}

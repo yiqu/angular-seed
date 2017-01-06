@@ -19,6 +19,7 @@ export class ToolbarComponent {
    * ServerStatusService.
    */
   constructor(public serverStatusService: ServerStatusService) {
+    // Update the last fetched date
     this.serverStatusService.updateFetchTime.subscribe((inputValue:boolean) => {
       if(inputValue) {
         this.lastPingValue = Date.now();

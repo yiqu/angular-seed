@@ -6,12 +6,12 @@ import { StatusDetailComponent } from './status-detail.component';
 
 import { EnabledPipe } from '../shared/pipes/server-enabled.pipe';
 import { StatusPipe } from '../shared/pipes/server-status.pipe';
-import { LoadingIndicatorComponent } from '../shared/index';
+
 
 @NgModule({
     imports: [CommonModule, SharedModule],
     declarations: [StatusComponent, StatusDetailComponent, 
-    EnabledPipe, StatusPipe, LoadingIndicatorComponent],
+    EnabledPipe, StatusPipe],
     exports: [StatusComponent] 
 })
 

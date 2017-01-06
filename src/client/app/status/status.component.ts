@@ -16,7 +16,7 @@ export class StatusComponent extends LoadingPage implements OnInit {
 
   errorMessage: string;
   clock: any;
-
+  
   // array string to send to status-detail @input status 
   status: any[] = [];
   // boolean to send over to status-detail @input loadedInput
@@ -37,10 +37,14 @@ export class StatusComponent extends LoadingPage implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
-    // Start spinner on init
     this.loadedValue = false;
     this.getAllStatus();
-    this.initializePolling();
+
+    // Only init polling if it has not already started
+    if (this.serverStatusService.startedPolling == false) {
+      this.initializePolling();
+    }
+    // Live clock 
     this.clock = Observable
       .interval(1000)
       .map(()=> {
@@ -60,8 +64,9 @@ export class StatusComponent extends LoadingPage implements OnInit {
           this.status = data
         },
         error => {
-          // TODO: send a failure message to display.
           console.log('failure with last fetch.');
+          // Update the navbar message, update the button back to Fetch, and display
+          // error message next to button
           this.serverStatusService.updateOperationalStatus.next('error');
           this.loadingMsgValue = "Fetch";
           this.errorMessage = "Error occured with last fetch: " + <any>error;
@@ -69,6 +74,7 @@ export class StatusComponent extends LoadingPage implements OnInit {
         () => {
           // Completed the call
           console.log('success!');
+          this.errorMessage = "";
           this.loadedValue = true;
           this.loadingMsgValue = "Fetch";
           // Update the time on top left (toolbar component)
@@ -84,6 +90,7 @@ export class StatusComponent extends LoadingPage implements OnInit {
    * Called on init to refresh the status every 1 mins.
    */
   initializePolling() {
+    this.serverStatusService.startedPolling = true;
     Observable.interval(60000)
       .subscribe(() => {
         this.getAllStatus();
