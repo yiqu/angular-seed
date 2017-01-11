@@ -22,14 +22,14 @@ export class ServerStatusService {
    * @return {string[]} The Observable for the HTTP request.
    */
   get(): Observable<string[]> {
-    /*
+   /*
     return this.http.get('/heartbeat/whoisup.json')
       .map((res: Response) => {
         return res.json();
       })
       .catch(this.handleError);
       */
-      
+       
       return Math.floor(Math.random() * 2) + 1 === 1 ? this.http.get('/assets/whoisup.json')
       .map((res: Response) => {
         return res.json();
@@ -41,6 +41,7 @@ export class ServerStatusService {
       })
       .delay(1000) // Added delay to test load mask
       .catch(this.handleError);
+      
       
   }
 
