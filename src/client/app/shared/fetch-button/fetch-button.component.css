@@ -1,21 +1,4 @@
 .fetch-button {
-     width: 120px;
-     background-color: #3377ff;
-}
-
-.fetch-button:hover {
-     width: 120px;
-     background-color: #6699ff;
-}
-
-.disabled-fetch-button {
     width: 120px;
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.disabled-fetch-button:hover {
-    width: 120px;
-    opacity: 0.6;
-    cursor: not-allowed;
+    right: -7px;
 }

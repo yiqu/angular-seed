@@ -1,2 +1,2 @@
-<div><button [ngClass]="loadingMsgInput === 'Fetch' ? 'fetch-button' : 'disabled-fetch-button'">
-    {{loadingMsgInput}}</button> {{errorLoadMsgInput}} </div>
+<button class="fetch-button" md-button [disabled]="loadingMsgInput === 'Fetch' ? 'false' : 'true'">
+    {{loadingMsgInput}}</button> {{errorLoadMsgInput}} 

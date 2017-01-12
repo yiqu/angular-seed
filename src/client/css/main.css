@@ -48,22 +48,7 @@ input {
   padding: 8px;
 }
 
-button {
-  background-color: #3366ff;
-  border-style: none;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
-  height: 40px;
-  padding: 8px 18px;
-  text-decoration: none;
-  margin-left: 8px;
-}
 
-button:hover {
-  background-color: #002080;
-}
 
 .sd-header {
   background-color: #00b33c;

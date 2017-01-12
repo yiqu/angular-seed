@@ -23,6 +23,13 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
+      /* HammerJS is required if the app uses certain Material components (eg: md-slider and md-slide-toggle) */
+      //{src: 'hammerjs/hammer.min.js', inject: 'libs'},
+
+      // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
+      // {src: 'lodash/lodash.min.js', inject: 'libs'},
+      /* Select a pre-built Material theme */
+      //{src: '@angular/material/core/theming/prebuilt/deeppurple-amber.css', inject: true}
     ];
 
     // Add `local` third-party libraries to be injected/bundled.
@@ -31,7 +38,18 @@ export class ProjectConfig extends SeedConfig {
       // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
+    /* Add to or override NPM module configurations: */
+    // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
 
+    // add Material configuration to SystemJS.
+    this.addPackageBundles({
+      name:'@angular/material',
+      path:'node_modules/@angular/material/bundles/material.umd.js',
+      packageMeta:{
+        main: 'index.js',
+        defaultExtension: 'js'
+      }
+    });
     // Add packages (e.g. lodash)
     // let additionalPackages: ExtendPackages[] = [{
     //   name: 'lodash',
