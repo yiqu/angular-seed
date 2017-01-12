@@ -38,3 +38,8 @@ b {
   margin-top: 12px;
   width: 34px;
 }
+
+.logo-image{
+  position: relative;
+  left: 32%;
+}

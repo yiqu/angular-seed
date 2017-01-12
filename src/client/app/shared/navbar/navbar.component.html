@@ -1,7 +1,13 @@
-<div id="message" [ngClass]="notOperational == true ? 'bad' : 'good'"> {{operationalMsg}} </div>
+<div id="message" [ngClass]="notOperational == true ? 'bad' : 'good'"> {{operationalMsg}} 
+  <md-icon [ngClass]="'material-icons md-21 ' + 'status-thumb-icon'">
+    {{notOperational == true ? 'thumb_down' : 'thumb_up'}}
+  </md-icon></div>
 
 <nav>
-  <a [routerLink]="['status']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">STATUS</a>
-  <a [routerLink]="['about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
+  <a [routerLink]="['status']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+    <md-icon class="material-icons md-12">public</md-icon>STATUS
+  </a>
+  <a [routerLink]="['about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+    <md-icon class="material-icons md-12">info_outline</md-icon>ABOUT
+  </a>
 </nav>
- 

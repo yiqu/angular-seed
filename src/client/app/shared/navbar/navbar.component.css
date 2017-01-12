@@ -47,3 +47,7 @@ nav a.router-link-active {
 .bad {
   color: #b30000;
 }
+
+.status-thumb-icon {
+  float: right;
+}
