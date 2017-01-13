@@ -29,7 +29,7 @@ export class ServerStatusService {
       })
       .catch(this.handleError);
       */
-       
+         
       return Math.floor(Math.random() * 2) + 1 === 1 ? this.http.get('/assets/whoisup.json')
       .map((res: Response) => {
         return res.json();

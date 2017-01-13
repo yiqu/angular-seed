@@ -17,6 +17,8 @@ export class ToolbarComponent {
   /**
    * Creates an instance of the toolbar comp with the injected
    * ServerStatusService.
+   * // img url: ./heartbeat/assets/images/logo_small.png
+   * // ./heartbeat/assets/images/logo_small.png
    */
   constructor(public serverStatusService: ServerStatusService) {
     // Update the last fetched date
