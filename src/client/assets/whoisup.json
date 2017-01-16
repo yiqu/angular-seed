@@ -2,5 +2,5 @@
     {"name":"int","status":"green","enabled":true},
     {"name":"caz","status":"yellow","enabled":true},
     {"name":"service","status":"green","enabled":true},
-    {"name":"alf","status":null,"enabled":false}
+    {"name":"alfres","status":null,"enabled":false}
 ]
