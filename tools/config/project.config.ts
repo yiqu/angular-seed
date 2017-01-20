@@ -29,7 +29,7 @@ export class ProjectConfig extends SeedConfig {
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       /* Select a pre-built Material theme */
-      //{src: '@angular/material/core/theming/prebuilt/deeppurple-amber.css', inject: true}
+      {src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
     ];
 
     // Add `local` third-party libraries to be injected/bundled.

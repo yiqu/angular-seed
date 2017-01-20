@@ -14,4 +14,6 @@ import { ServerStatusService } from '../server-status/index';
 export class fetchButtonComponent {
     @Input() loadingMsgInput: string;
     @Input() errorLoadMsgInput: string;
+
+    private fetchButtonTooltip: string = "Fetch latest status";
 }

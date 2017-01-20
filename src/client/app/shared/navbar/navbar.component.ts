@@ -15,6 +15,9 @@ export class NavbarComponent {
   operationalMsg: string =  "Loading... Please wait.";
   serverError: boolean;
 
+  private statusButtonTooltip:string = "All status";
+  private aboutButtonTooltip:string = "About";
+
   /**
    * Creates an instance of the toolbar comp with the injected
    * ServerStatusService.

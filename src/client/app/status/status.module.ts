@@ -6,10 +6,10 @@ import { StatusDetailComponent } from './status-detail.component';
 
 import { EnabledPipe } from '../shared/pipes/server-enabled.pipe';
 import { StatusPipe } from '../shared/pipes/server-status.pipe';
-
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
-    imports: [CommonModule, SharedModule],
+    imports: [CommonModule, SharedModule, MaterialModule.forRoot()],
     declarations: [StatusComponent, StatusDetailComponent, 
     EnabledPipe, StatusPipe],
     exports: [StatusComponent] 

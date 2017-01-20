@@ -1,19 +1,15 @@
 <div class='status-heading'>
-    <div class = 'about'>
-    <h4><b>What is this site?</b></h4>
-    </div>
-    <p>We continuously monitor the status of <a target="_blank" href="/AppName/">AppName</a> and all its related services. 
-
-    <div class = 'about'>
-    <h4><b>What do we monitor?</b></h4>
-    </div>
-    <p><b>SERVICE</b> - Core AppName functionality service.
-    <p><b>caz</b> - User authentication service.
-    <p><b>INTEGRATION</b> - Intermediary services to facilitate with other external systems to provide AppName with integration points to other apps.
-    <p><b>ALFRESCO</b> - AppName attachment management.
+    <h4>What is this site?</h4>
 </div>
+<md-divider></md-divider>
+<p class="details">We continuously monitor the status of <a target="_blank" href="/AppName/">AppName</a> and all its related services. 
 
 <div class='status-date'>It is currently {{clock | async | date:'yMd'}}, {{clock | async | date:'jms'}}</div>
+
+<div class='status-heading'>
+    <h4>What do we monitor?</h4>
+</div>
+<md-divider></md-divider>
 
 <status-detail [status]="status" [loadedInput]="loadedValue"></status-detail>
 

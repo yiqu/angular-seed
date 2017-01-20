@@ -1,6 +1,6 @@
 [
-    {"name":"int","status":"green","enabled":true},
-    {"name":"caz","status":"yellow","enabled":true},
-    {"name":"service","status":"green","enabled":true},
-    {"name":"alfres","status":null,"enabled":false}
+    {"name":"a service","status":"green","service":"internal","enabled":true,"tooltip":"Intermediary services to facilitate with other external systems to provide AppName with integration points to other apps"},
+    {"name":"google maps","status":"yellow","service":"external","enabled":true, "tooltip":"User authentication service"},
+    {"name":"b service","status":"green","service":"internal","enabled":true,"tooltip":"Core functionality service"},
+    {"name":"mysql","status":null,"service":"database","enabled":false,"tooltip":"Database management service"}
 ]

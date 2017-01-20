@@ -34,12 +34,12 @@ export class ServerStatusService {
       .map((res: Response) => {
         return res.json();
       })
-      .delay(1000) // Added delay to test load mask
+      .delay(2000) // Added delay to test load mask
       .catch(this.handleError) : this.http.get('/assets/whoisup2.json')
       .map((res: Response) => {
         return res.json();
       })
-      .delay(1000) // Added delay to test load mask
+      .delay(2000) // Added delay to test load mask
       .catch(this.handleError);
       
     

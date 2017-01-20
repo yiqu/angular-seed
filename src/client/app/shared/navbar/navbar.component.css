@@ -6,7 +6,7 @@
   padding: 45px 0 1px;
 }
 
-nav a {
+nav {
   color: #8f8f8f;
   font-size: 12px;
   font-weight: bold;
@@ -15,11 +15,17 @@ nav a {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
+  padding: 4px 0 0 0;
 }
 
-nav a.router-link-active {
-  color: black;
+nav .router-link-active {
   text-decoration: underline;
+  color: black;
+  background-color: #e6e6e6;
+}
+
+.navbar-icon {
+  margin-left: -10px;
 }
 
 #message {
@@ -28,6 +34,7 @@ nav a.router-link-active {
   margin: 0 0 0px;
   border: 1px solid #ccc;
   position: relative;
+  font-size: 17px;
 }
 
 #message.good {

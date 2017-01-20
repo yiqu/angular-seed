@@ -1,13 +1,11 @@
-<div id="message" [ngClass]="notOperational == true ? 'bad' : 'good'"> {{operationalMsg}} 
+<md-card id="message" [ngClass]="notOperational == true ? 'bad' : 'good'" mdTooltip={{operationalMsg}}> {{operationalMsg}} 
   <md-icon [ngClass]="'material-icons md-21 ' + 'status-thumb-icon'">
     {{notOperational == true ? 'thumb_down' : 'thumb_up'}}
-  </md-icon></div>
-
+  </md-icon>
+</md-card>
 <nav>
-  <a [routerLink]="['status']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
-    <md-icon class="material-icons md-12">public</md-icon>STATUS
-  </a>
-  <a [routerLink]="['about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
-    <md-icon class="material-icons md-12">info_outline</md-icon>ABOUT
-  </a>
+  <button [routerLink]="['status']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}"
+   md-button mdTooltip={{statusButtonTooltip}} ><md-icon class="material-icons md-20 navbar-icon">public</md-icon>STATUS</button>
+  <button [routerLink]="['about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}"
+   md-button mdTooltip={{aboutButtonTooltip}} ><md-icon class="material-icons md-20 navbar-icon">info_outline</md-icon>ABOUT</button>
 </nav>

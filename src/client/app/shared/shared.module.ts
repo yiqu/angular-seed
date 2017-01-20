@@ -19,7 +19,7 @@ import { ToolbarComponent } from './toolbar/index';
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule, MaterialModule.forRoot()],
+  imports: [CommonModule, FormsModule, RouterModule, MaterialModule.forRoot()],
   declarations: [ToolbarComponent, NavbarComponent, lastPingComponent, fetchButtonComponent],
   exports: [ToolbarComponent, NavbarComponent, lastPingComponent, fetchButtonComponent,
     CommonModule, FormsModule, RouterModule]

@@ -1,2 +1,8 @@
-<button class="fetch-button" md-button [disabled]="loadingMsgInput === 'Fetch' ? 'false' : 'true'">
-    {{loadingMsgInput}}</button> {{errorLoadMsgInput}} 
+<a>
+    <button class="fetch-button" md-raised-button [disabled]="loadingMsgInput === 'Fetch' ? 'false' : 'true'" 
+     mdTooltip={{fetchButtonTooltip}} 
+     color="primary" 
+     #getTooltip="mdTooltip" 
+     (mouseenter)="getTooltip.show()">
+    {{loadingMsgInput}}</button> <br>{{errorLoadMsgInput}}
+</a>

@@ -1,19 +1,15 @@
 :host {
   display: block;
-  padding: 0 8px;
-  font-family: "Helvetica Neue",​Helvetica,​Arial,​sans-serif;
-}
-
-.server-report {
-  padding: 10px 0px 10px 0px;
-  /* opacity: 0.6; */
+  font-family: Helvetica,​Arial,​sans-serif;
 }
 
 .server-report-loading {
-  padding: 10px 0px 10px 0px;
-  opacity: 0.5;
+  opacity: 0.5; 
 }
 
+.service-title {
+  font-family: Helvetica,​Arial,​sans-serif;
+}
 .status-enabled {
   text-transform: uppercase;
   color: black;
@@ -25,36 +21,21 @@
 }
 
 .status-green {
-  color: white;
-  background-color: #00cc00
+  color: #396;
+  margin-bottom: 20px;
 }
 
 .status-yellow {
-  color: black;
-  background-color: #ffff00
+  color: #ff9900;
+  margin-bottom: 20px;
 }
 
 .status-red {
-  color: white;
-  background-color: #ff0000
+  color: #ff0000;
+  margin-bottom: 20px;
 }
 
 .status-none {
-  color: white;
-  background-color: #bfbfbf
-}
-
-table {
-    border-collapse: collapse;
-    width: 101%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-.tr-headers {
-  color: #727272;
+  color: #bfbfbf;
+  margin-bottom: 20px;
 }
