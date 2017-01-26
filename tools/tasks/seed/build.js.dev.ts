@@ -64,13 +64,6 @@ export =
 
       return result.js
         .pipe(plugins.sourcemaps.write())
-        // Use for debugging with Webstorm/IntelliJ
-        // https://github.com/mgechev/angular2-seed/issues/1220
-        //    .pipe(plugins.sourcemaps.write('.', {
-        //      includeContent: false,
-        //      sourceRoot: (file: any) =>
-        //        relative(file.path, PROJECT_ROOT + '/' + APP_SRC).replace(sep, '/') + '/' + APP_SRC
-        //    }))
         .pipe(plugins.template(Object.assign(
           templateLocals(), {
             SYSTEM_CONFIG_DEV: jsonSystemConfig

@@ -22,11 +22,7 @@ export function watch(taskname: string) {
       changeFileManager.addFile(e.path);
 
 
-      // Resolves issue in IntelliJ and other IDEs/text editors which
-      // save multiple files at once.
-      // https://github.com/mgechev/angular-seed/issues/1615 for more details.
       setTimeout(() => {
-
         runSequence(taskname, () => {
           changeFileManager.clear();
           notifyLiveReload(e);
