@@ -62,7 +62,7 @@ export class StatusDetailComponent extends LoadingPage implements OnChanges {
     private redStatus:string = "Service halted";
     private nullStatus:string = "Service disabled";
   /**
-   * Creates an instance of the HomeComponent with the injected
+   * Creates an instance of the Status Component with the injected
    * ServerStatusService.
    *
    * @param {ServerStatusService} serverStatusService - The injected ServerStatusService.
