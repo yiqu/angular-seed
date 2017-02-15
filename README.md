@@ -1,10 +1,6 @@
 # Introduction
 
-An example monitoring application using Angular 2 and Material 2. Forked from mgechev's [Angular-seed](https://github.com/mgechev/angular-seed).
-
-# Live Demo
-
-A live demo is located here: https://yiqu.github.io/angular2-example-status-monitoring
+Forked from mgechev's [Angular-seed](https://github.com/mgechev/angular-seed).
 
 # To Start
 In order to start the app:
